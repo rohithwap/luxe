@@ -24,7 +24,7 @@ pipeline {
     stage('Cloning') {
       steps {
         echo 'Cloning into Blue'
-        sh 'git clone https://github.com/rohithwap/luxe.git /home/luxeevents/web/luxeevents.in/public_html/blue'
+        sh 'sudo git clone https://github.com/rohithwap/luxe.git /home/luxeevents/web/luxeevents.in/public_html/blue'
         echo 'Clone complete'
       }
     }
