@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Checkout Branch') {
       steps {
-        git(url: 'git@github.com:rohithwap/luxe.git', branch: 'master')
+        git(url: 'https://github.com/rohithwap/luxe.git', branch: 'master')
       }
     }
 
