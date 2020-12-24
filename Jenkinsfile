@@ -9,15 +9,14 @@ pipeline {
     stage('Checkout Branch') {
       steps {
         echo 'Checking Out Branch'
-        git(url: 'https://github.com/rohithwap/luxe.git', branch: 'master', userRemoteConfigs: )
+        git(url: 'https://github.com/rohithwap/luxe.git', branch: 'master', readFile: ('https://github.com/rohithwap/luxe/blob/master/deploymentSettings.groovy').each {key -> echo key })
         echo 'Checkout Successful'
       }
     }
 
     stage('Checking  Folder') {
       steps {
-        echo 'Checking Deployment Folder'
-        readTrusted (file: 'https://github.com/rohithwap/luxe/blob/master/deploymentSettings.groovy').each {key -> echo key }
+        echo 'Checking Deployment Folder'        
         echo 'Folder to deploy is:'
         echo "${env.folder}"   
       }
