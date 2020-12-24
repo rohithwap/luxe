@@ -18,7 +18,9 @@ pipeline {
       steps {
         echo 'Checking Deployment Folder'
         readFile 'deploymentSettings.groovy'
-        load 'deploymentSettings.groovy'
+        script {
+          readProperties(file: deploymentSettings.groovy).each {key, value -> env[key] = value }
+        }
         echo 'Folder to deploy is:'
         echo "${env.folder}"   
       }
