@@ -17,13 +17,11 @@ pipeline {
     stage('Checking  Folder') {
       steps {
         echo 'Checking For Deployment File'
-        fileExists: 'https://github.com/rohithwap/luxe/blob/master/deploymentSettings.groovy'       
-      }
-      steps {
+        fileExists: 'https://github.com/rohithwap/luxe/blob/master/deploymentSettings.groovy'    
         echo 'Checking Deployment Values'
         readFile: ('https://github.com/rohithwap/luxe/blob/master/deploymentSettings.groovy').each {key -> echo key }
-        echo "${env.folder}"   
-      }
+        echo "${env.folder}"      
+      }      
     }
 
     stage('Cleaning Folder') {
