@@ -9,7 +9,7 @@ pipeline {
     stage('Checkout Branch') {
       steps {
         echo 'Checking Out Branch'
-        git(url: 'https://github.com/rohithwap/luxe.git', branch: 'master')
+        git(url: 'https://github.com/rohithwap/luxe.git', branch: 'master', userRemoteConfigs: )
         echo 'Checkout Successful'
       }
     }
@@ -18,7 +18,7 @@ pipeline {
       steps {
         echo 'Checking Deployment Folder'        
         script {
-          readProperties(file: deploymentSettings.groovy).each {key, value -> env[key] = value }
+          readProperties(file: 'deploymentSettings.txt').each {key, value -> env[key] = value }
         }
         echo 'Folder to deploy is:'
         echo "${env.folder}"   
