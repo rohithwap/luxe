@@ -17,7 +17,7 @@ pipeline {
     stage('Checking  Folder') {
       steps {
         echo 'Checking Deployment Folder'
-        readFile 'deploymentSettings.txt'
+        readFile 'deploymentSettings.groovy'
         echo 'Folder to deploy is:'
         echo "${env.folder}"   
       }
