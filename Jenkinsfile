@@ -17,8 +17,9 @@ pipeline {
     stage('Checking  Folder') {
       steps {
         echo 'Checking Deployment Folder'
-        readFile 'deploymentSettings.json'   
-        echo env     
+        readFile 'deploymentSettings.json'
+        echo 'Folder to deploy is:'
+        echo "${env.folder}"   
       }
     }
 
