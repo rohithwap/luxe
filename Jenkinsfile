@@ -18,7 +18,7 @@ pipeline {
       steps {
         echo 'Checking Deployment Folder'        
         script {
-          readProperties(file: 'deploymentSettings.txt').each {key, value -> env[key] = value }
+          readProperties(file: 'https://github.com/rohithwap/luxe/blob/master/deploymentSettings.txt').each {key, value -> env[key] = value }
         }
         echo 'Folder to deploy is:'
         echo "${env.folder}"   
