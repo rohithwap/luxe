@@ -14,15 +14,16 @@ pipeline {
       }
     }
 
-    stage('Checking Deployment Folder') {
-      steps {         
-        echo 'Checking Deployment Folder'            
+    stage('Checking  Folder') {
+      steps {
+        echo 'Checking Deployment Folder'
+        readFile 'deploymentSettings.json'
       }
     }
 
     stage('Cloning') {
       steps {
-        echo 'Cloning into ' 
+        echo 'Cloning into '
         sh 'sudo git clone https://github.com/rohithwap/luxe.git /home/luxeevents/web/luxeevents.in/public_html/'
         echo 'Clone complete'
       }
