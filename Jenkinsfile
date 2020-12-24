@@ -24,7 +24,7 @@ pipeline {
 
     stage('Cleaning Folder') {
       steps {
-        sh 'rm -rf /home/luxeevents/web/luxeevents.in/public_html/blue'
+        sh 'sudo rm -rf /home/luxeevents/web/luxeevents.in/public_html/blue'
       }
     }
 
