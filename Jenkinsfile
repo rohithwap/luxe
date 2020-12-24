@@ -14,14 +14,7 @@ pipeline {
       }
     }
 
-    stage('Checking  Folder') {
-      steps {
-        echo 'Checking Deployment Folder'
-        readFile 'deploymentSettings.json'             
-      }
-    }
-
-    stage('Cleaning Folder') {
+    stage('Cleaning') {
       steps {
         sh 'sudo rm -rf /home/luxeevents/web/luxeevents.in/public_html/blue'
       }
@@ -29,7 +22,7 @@ pipeline {
 
     stage('Cloning') {
       steps {
-        echo 'Cloning into '
+        echo 'Cloning into Blue'
         sh 'sudo git clone https://github.com/rohithwap/luxe.git /home/luxeevents/web/luxeevents.in/public_html/blue'
         echo 'Clone complete'
       }
@@ -37,7 +30,7 @@ pipeline {
 
     stage('Success') {
       steps {
-        echo 'Deployed Successfully to '
+        echo 'Deployed Successfully to Blue'
       }
     }
     
