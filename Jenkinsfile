@@ -18,6 +18,7 @@ pipeline {
       steps {
         echo 'Checking Deployment Folder'
         readFile 'deploymentSettings.groovy'
+        load 'deploymentSettings.groovy'
         echo 'Folder to deploy is:'
         echo "${env.folder}"   
       }
