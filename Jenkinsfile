@@ -15,9 +15,11 @@ pipeline {
     }
 
     stage('Checking Deployment Folder') {
-      steps {       
-        def folderData = readFileFromWorkspace('deploymentSettings.json')
-        def folder = folderData.folder        
+      steps {  
+        script{
+          def folderData = readFileFromWorkspace('deploymentSettings.json')
+          def folder = folderData.folder
+        }       
       }
     }
 
