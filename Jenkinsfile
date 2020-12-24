@@ -16,8 +16,7 @@ pipeline {
 
     stage('Checking  Folder') {
       steps {
-        echo 'Checking Deployment Folder'
-        readFile 'deploymentSettings.groovy'
+        echo 'Checking Deployment Folder'        
         script {
           readProperties(file: deploymentSettings.groovy).each {key, value -> env[key] = value }
         }
