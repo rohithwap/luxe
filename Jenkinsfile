@@ -14,24 +14,24 @@ pipeline {
       }
     }
 
-    stage('Sleep') {
-      steps {
-        echo 'Sleeping for 30 seconds'
-        sleep 30
+    stage('Checking Deployment Folder') {
+      steps {       
+        def folderData = readFileFromWorkspace('deploymentSettings.json')
+        def folder = folderData.folder        
       }
     }
 
     stage('Cloning') {
       steps {
-        echo 'Cloning into Blue'
-        sh 'sudo git clone https://github.com/rohithwap/luxe.git /home/luxeevents/web/luxeevents.in/public_html/blue'
+        echo 'Cloning into ' +folderData.folder
+        sh 'sudo git clone https://github.com/rohithwap/luxe.git /home/luxeevents/web/luxeevents.in/public_html/'+ folder
         echo 'Clone complete'
       }
     }
 
     stage('Success') {
       steps {
-        echo 'Deployed Successfully'
+        echo 'Deployed Successfully to ' +folder
       }
     }
 
