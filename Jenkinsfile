@@ -21,6 +21,12 @@ pipeline {
       }
     }
 
+    stage('Cleaning Folder') {
+      steps {
+        sh 'rm -rf /home/luxeevents/web/luxeevents.in/public_html/blue'
+      }
+    }
+
     stage('Cloning') {
       steps {
         echo 'Cloning into '
@@ -34,12 +40,6 @@ pipeline {
         echo 'Deployed Successfully to '
       }
     }
-
-    stage('Cleaning Folder') {
-      steps {
-        sh 'rm -rf /home/luxeevents/web/luxeevents.in/public_html/blue'
-      }
-    }
-
+    
   }
 }
