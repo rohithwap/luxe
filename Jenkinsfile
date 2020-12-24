@@ -18,6 +18,7 @@ pipeline {
       steps {
         echo 'Checking Deployment Folder'
         readFile 'deploymentSettings.json'
+        pwd(tmp: true)
       }
     }
 
@@ -40,6 +41,6 @@ pipeline {
         echo 'Deployed Successfully to '
       }
     }
-    
+
   }
 }
