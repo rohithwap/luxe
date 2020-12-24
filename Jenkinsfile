@@ -17,7 +17,9 @@ pipeline {
     stage('Checking  Folder') {
       steps {
         echo 'Checking For Deployment File'
-        fileExists: 'https://github.com/rohithwap/luxe/blob/master/deploymentSettings.groovy'
+        fileExists: 'https://github.com/rohithwap/luxe/blob/master/deploymentSettings.groovy'       
+      }
+      steps {
         echo 'Checking Deployment Values'
         readFile: ('https://github.com/rohithwap/luxe/blob/master/deploymentSettings.groovy').each {key -> echo key }
         echo "${env.folder}"   
