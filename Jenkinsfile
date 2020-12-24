@@ -14,25 +14,15 @@ pipeline {
       }
     }
 
-    stage('Checking  Folder') {
-      steps {
-        echo 'Checking For Deployment File'
-        fileExists: 'https://github.com/rohithwap/luxe/blob/master/deploymentSettings.groovy'    
-        echo 'Checking Deployment Values'
-        readFile: ('https://github.com/rohithwap/luxe/blob/master/deploymentSettings.groovy').each {key -> echo key }
-        echo "${env.folder}"      
-      }      
-    }
-
-    stage('Cleaning Folder') {
-      steps {
-        sh 'sudo rm -rf /home/luxeevents/web/luxeevents.in/public_html/blue'
+    stage('Checking Deployment Folder') {
+      steps {         
+        echo 'Checking Deployment Folder'            
       }
     }
 
     stage('Cloning') {
       steps {
-        echo 'Cloning into '
+        echo 'Cloning into ' 
         sh 'sudo git clone https://github.com/rohithwap/luxe.git /home/luxeevents/web/luxeevents.in/public_html/blue'
         echo 'Clone complete'
       }
@@ -43,6 +33,6 @@ pipeline {
         echo 'Deployed Successfully to '
       }
     }
-    
+
   }
 }
