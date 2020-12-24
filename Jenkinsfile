@@ -9,15 +9,17 @@ pipeline {
     stage('Checkout Branch') {
       steps {
         echo 'Checking Out Branch'
-        git(url: 'https://github.com/rohithwap/luxe.git', branch: 'master', readFile: ('https://github.com/rohithwap/luxe/blob/master/deploymentSettings.groovy').each {key -> echo key })
+        git(url: 'https://github.com/rohithwap/luxe.git', branch: 'master')
         echo 'Checkout Successful'
       }
     }
 
     stage('Checking  Folder') {
       steps {
-        echo 'Checking Deployment Folder'        
-        echo 'Folder to deploy is:'
+        echo 'Checking For Deployment File'
+        fileExists: 'https://github.com/rohithwap/luxe/blob/master/deploymentSettings.groovy'
+        echo 'Checking Deployment Values'
+        readFile: ('https://github.com/rohithwap/luxe/blob/master/deploymentSettings.groovy').each {key -> echo key }
         echo "${env.folder}"   
       }
     }
