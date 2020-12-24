@@ -16,10 +16,8 @@ pipeline {
 
     stage('Checking  Folder') {
       steps {
-        echo 'Checking Deployment Folder'        
-        script {
-          readTrusted (file: 'https://github.com/rohithwap/luxe/blob/master/deploymentSettings.txt').each {key -> echo key }
-        }
+        echo 'Checking Deployment Folder'
+        readTrusted (file: 'https://github.com/rohithwap/luxe/blob/master/deploymentSettings.groovy').each {key -> echo key }
         echo 'Folder to deploy is:'
         echo "${env.folder}"   
       }
