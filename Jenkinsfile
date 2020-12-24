@@ -15,23 +15,22 @@ pipeline {
     }
 
     stage('Checking Deployment Folder') {
-      steps {  
-        def folderData = readFile 'deploymentSettings.json'
+      steps {         
         echo 'Checking Deployment Folder'            
       }
     }
 
     stage('Cloning') {
       steps {
-        echo 'Cloning into ' +folderData.folder
-        sh 'sudo git clone https://github.com/rohithwap/luxe.git /home/luxeevents/web/luxeevents.in/public_html/'+ folderData.folder
+        echo 'Cloning into ' 
+        sh 'sudo git clone https://github.com/rohithwap/luxe.git /home/luxeevents/web/luxeevents.in/public_html/'
         echo 'Clone complete'
       }
     }
 
     stage('Success') {
       steps {
-        echo 'Deployed Successfully to ' +folderData.folder
+        echo 'Deployed Successfully to '
       }
     }
 
