@@ -14,6 +14,7 @@ pipeline {
 load \'deploymentSettings.groovy\'
 '''
         echo 'Checkout Successful'
+        load 'deploymentSettings,groovy'
       }
     }
 
