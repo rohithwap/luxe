@@ -13,20 +13,20 @@ pipeline {
         script {
           env_folder = readFile('deploymentSettings.txt')
         }        
-        echo "Checkout Successful, deployment will be made to ${env_folder}"
+        echo "Checkout Successful, deployment will be made to ${env.env_folder}"
       }
     }
 
     stage('Cleaning') {
       steps {
-        sh "sudo rm -rf /home/luxeevents/web/luxeevents.in/public_html/${env_folder}"
+        sh "sudo rm -rf /home/luxeevents/web/luxeevents.in/public_html/${env.env_folder}"
       }
     }
 
     stage('Cloning') {
       steps {
         echo 'Cloning into Blue'
-        sh "sudo git clone https://github.com/rohithwap/luxe.git /home/luxeevents/web/luxeevents.in/public_html/${env_folder}"
+        sh "sudo git clone https://github.com/rohithwap/luxe.git /home/luxeevents/web/luxeevents.in/public_html/${env.env_folder}"
         echo 'Clone complete'
       }
     }
