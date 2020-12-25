@@ -11,7 +11,7 @@ pipeline {
         echo 'Checking Out Branch'
         git(url: 'https://github.com/rohithwap/luxe.git', branch: 'master')
         sh '''ls
-def dep = readFile(\'deploymentSettings.txt\')
+def dep = readFile(\'deploymentSettings.txt\');
 dep.each {key -> echo key }'''
         echo 'Checkout Successful'
       }
