@@ -11,8 +11,9 @@ pipeline {
         echo 'Checking Out Branch'
         git(url: 'https://github.com/rohithwap/luxe.git', branch: 'master')
         sh '''ls
-. ./deploymentSettings.txt
-echo $env_folder'''
+        . ./deploymentSettings.txt
+        echo $env_folder'''
+        ${env.env_folder} = $env_folder
         echo 'Checkout Successful, deployment is currently set to ${env.folder}'
       }
     }
