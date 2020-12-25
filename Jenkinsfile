@@ -10,8 +10,9 @@ pipeline {
       steps {
         echo 'Checking Out Branch'
         git(url: 'https://github.com/rohithwap/luxe.git', branch: 'master')
-        sh '''ls
-        . ./deploymentSettings.txt'''
+        script {
+          env_folder = readFile('deploymentSettings.txt.txt')
+        }        
         echo "Checkout Successful, deployment will be made to ${env_folder}"
       }
     }
