@@ -5,6 +5,9 @@ pipeline {
     }
 
   }
+  environment {
+    vars = ''
+  }
   stages {
     stage('Checkout Branch') {
       steps {
@@ -37,8 +40,5 @@ pipeline {
       }
     }
 
-  }
-  environment {
-    env_folder = ''
-  }
+  }  
 }
