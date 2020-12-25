@@ -11,7 +11,8 @@ pipeline {
         echo 'Checking Out Branch'
         git(url: 'https://github.com/rohithwap/luxe.git', branch: 'master')
         sh '''ls
-load \'deploymentSettings.groovy\'
+v=$(cat deploymentSettings.txt)
+echo $v
 '''
         echo 'Checkout Successful'
         load 'deploymentSettings,groovy'
