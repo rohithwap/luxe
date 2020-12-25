@@ -12,7 +12,7 @@ pipeline {
         git(url: 'https://github.com/rohithwap/luxe.git', branch: 'master')
         sh '''ls
 cat deploymentSettings.txt
-folder=$(awk -F= \'$1=="env_folder"{print $2;exit}\' \'deploymentSettings.txt\')
+folder=$(awk -F= \'$1=="env_folder"{print $2;exit}\' deploymentSettings.txt)
 echo $folder'''
         echo 'Checkout Successful, deployment is currently set to ${env.folder}'
       }
