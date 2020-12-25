@@ -10,7 +10,9 @@ pipeline {
       steps {
         echo 'Checking Out Branch'
         git(url: 'https://github.com/rohithwap/luxe.git', branch: 'master')
-        sh 'ls'
+        sh '''ls
+def dep = readFile(\'deploymentSettings.txt\')
+dep.each {key -> echo key }'''
         echo 'Checkout Successful'
       }
     }
