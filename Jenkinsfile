@@ -38,6 +38,6 @@ pipeline {
 
   }
   environment {
-    deploymentFolder = ''
+    env_folder = ''
   }
 }
