@@ -12,10 +12,9 @@ pipeline {
         git(url: 'https://github.com/rohithwap/luxe.git', branch: 'master')
         sh '''ls
 v=$(cat deploymentSettings.txt)
-echo $v
+$env.deploymentFolder = v.env.folder
 '''
-        echo 'Checkout Successful'
-        load 'deploymentSettings,groovy'
+        echo 'Checkout Successful, deployment is currently set to ${env.folder}'
       }
     }
 
@@ -39,5 +38,8 @@ echo $v
       }
     }
 
+  }
+  environment {
+    deploymentFolder = ''
   }
 }
