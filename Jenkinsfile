@@ -10,6 +10,7 @@ pipeline {
       steps {
         echo 'Checking Out Branch'
         git(url: 'https://github.com/rohithwap/luxe.git', branch: 'master')
+        sh 'ls > files'
         echo 'Checkout Successful'
       }
     }
@@ -33,6 +34,6 @@ pipeline {
         echo 'Deployed Successfully to Blue'
       }
     }
-    
+
   }
 }
