@@ -13,8 +13,8 @@ pipeline {
         sh '''ls
         . ./deploymentSettings.txt
         echo $env_folder
-        ${env.env_folder} = $env_folder'''
-       
+        ${env.env_folder} = $env_folder
+echo $env'''
         echo 'Checkout Successful, deployment is currently set to ${env.env_folder}'
       }
     }
