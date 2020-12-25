@@ -12,7 +12,7 @@ pipeline {
         git(url: 'https://github.com/rohithwap/luxe.git', branch: 'master')
         sh '''ls
 cat deploymentSettings.txt
-folder = $(awk -F= \'$1=="env_folder"{print $2;exit}\' deploymentSettings.txt)
+folder = env_folder
 echo folder
 
 '''
